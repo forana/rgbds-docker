@@ -10,14 +10,12 @@ RUN apt-get update && \
         flex \
         pkg-config \
         libpng-dev \
-        git
+        git \
+        python
 
-RUN git clone --branch v0.3.7 https://github.com/rednex/rgbds.git /build
-RUN make Q=
-RUN make install
+RUN git clone --branch v0.3.8 https://github.com/rednex/rgbds.git
+RUN cd rgbds && make install
 
 WORKDIR /app
-RUN rm -rf /build
 
-ENV TERM=xterm-256color
-CMD ["script", "-q", "-c", "/bin/bash", "/dev/null"]
+CMD make

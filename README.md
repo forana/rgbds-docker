@@ -1,17 +1,13 @@
 # rgbds-docker
 
-Super-minimal dockerfile for an Ubuntu-based (18.04) dev environment with [rgbds](https://github.com/rednex/rgbds) preinstalled.
+Dockerized [RGBDS](https://github.com/rednex/rgbds/releases/tag/v0.3.8) install so that you don't need to install it locally.
 
-To use with your own project, run like so in your terminal:
-
-```sh
-docker run -it --rm -v $(pwd):/app forana/rgbds:latest
-```
-
-If you'd like to bring in your own `.bashrc` (or similar):
+To build a local project:
 
 ```sh
-docker run -it --rm -v $(pwd):/app -v ~/.bashrc:/root/.bashrc forana/rgbds:latest
+docker run --rm -v $(pwd):/app forana/rgbds
 ```
 
-Check out the list of available tags at [https://hub.docker.com/r/forana/rgbds/tags/](https://hub.docker.com/r/forana/rgbds/tags/).
+The build artifacts will then be in the project directory.
+
+The default command is `make`. If you need to run something else, you can pass it as an argument.
